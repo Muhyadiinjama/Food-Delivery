@@ -1,12 +1,23 @@
-import React from 'react'
+import { BrowserRouter,Route, Routes } from "react-router-dom";
+import Home from './pages/Home.jsx';
+import Menu from "./pages/Menu.jsx";
+import Navbar from "./components/Nav.jsx";
+import NotFound from "./pages/Notfound.jsx";
+import Footer from "./components/footer.jsx";
+
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline text-center bg-red-500 text-white p-4">
-        waankusalmaaye! </h1>
-        <h1>what did you muhydin </h1>
-    </div>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/menu" element={<Menu/>} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    <Footer />
+    </BrowserRouter>
+
   )
 }
 
