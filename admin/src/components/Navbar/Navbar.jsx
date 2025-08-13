@@ -1,12 +1,9 @@
 // src/components/AdminNavbar.jsx
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import {
-  FiMenu,
-  FiX
-} from 'react-icons/fi';
-import { GiChefToque } from 'react-icons/gi';
-import { styles, navLinks } from '../../assets/dummyadmin';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+import { GiChefToque } from "react-icons/gi";
+import { styles, navLinks } from "../../assets/dummyadmin";
 
 const AdminNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,8 +12,7 @@ const AdminNavbar = () => {
     <nav className={styles.navWrapper}>
       <div className={styles.navContainer}>
         <div className={styles.logoSection}>
-          <GiChefToque className={styles.logoIcon} />
-          <span className={styles.logoText}>Admin Panel</span>
+          <span className={styles.logoText}>Admin Food point</span>
         </div>
 
         <button
@@ -27,12 +23,13 @@ const AdminNavbar = () => {
         </button>
 
         <div className={styles.desktopMenu}>
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               className={({ isActive }) =>
-                `${styles.navLinkBase} ${isActive ? styles.navLinkActive : styles.navLinkInactive
+                `${styles.navLinkBase} ${
+                  isActive ? styles.navLinkActive : styles.navLinkInactive
                 }`
               }
             >
@@ -45,13 +42,14 @@ const AdminNavbar = () => {
 
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `${styles.navLinkBase} ${isActive ? styles.navLinkActive : styles.navLinkInactive
+                `${styles.navLinkBase} ${
+                  isActive ? styles.navLinkActive : styles.navLinkInactive
                 }`
               }
             >
