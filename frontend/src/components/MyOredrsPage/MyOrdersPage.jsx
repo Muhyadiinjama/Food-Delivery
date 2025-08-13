@@ -213,7 +213,7 @@ const UserOrdersPage = () => {
                                   {item.item.name}
                                 </span>
                                 <div className="flex items-center gap-2 text-xs text-amber-400/60">
-                                  <span>₹{item.item.price}</span>
+                                  <span>RM{item.item.price}</span>
                                   <span className="mx-1">•</span>
                                   <span>x{item.quantity}</span>
                                 </div>
@@ -231,7 +231,7 @@ const UserOrdersPage = () => {
                         </div>
                       </td>
 
-                      <td className="p-4 text-amber-300 text-lg">₹{totalPrice.toFixed(2)}</td>
+                      <td className="p-4 text-amber-300 text-lg">RM{totalPrice.toFixed(2)}</td>
 
                       <td className="p-4">
                         <div className="flex flex-col gap-2">

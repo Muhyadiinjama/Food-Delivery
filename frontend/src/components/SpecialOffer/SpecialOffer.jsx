@@ -75,7 +75,7 @@ const SpecialOffer = () => {
                   <p className="text-gray-300 mb-5 text-sm">{item.description}</p>
                   <div className="flex items-center justify-between gap-4">
                     <span className="text-2xl font-bold text-amber-400">
-                      ₹{Number(item.price).toFixed(2)}
+                      RM{Number(item.price).toFixed(2)}
                     </span>
 
                     {qty > 0 ? (

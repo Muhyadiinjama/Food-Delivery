@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useCart } from '../../CartContext/CartContext';
-import { Link } from 'react-router-dom';
-import { FaMinus, FaPlus, FaTrash, FaTimes } from 'react-icons/fa';
+import React, { useState } from "react";
+import { useCart } from "../../CartContext/CartContext";
+import { Link } from "react-router-dom";
+import { FaMinus, FaPlus, FaTrash, FaTimes } from "react-icons/fa";
 
 // Base URL for serving uploaded images
-const API_URL = 'http://localhost:4000';
+const API_URL = "http://localhost:4000";
 
 const CartPage = () => {
   const { cartItems, removeFromCart, updateQuantity, totalAmount } = useCart();
@@ -12,10 +12,10 @@ const CartPage = () => {
 
   // Helper to construct full image URL
   const buildImageUrl = (path) => {
-    if (!path) return '';
-    return path.startsWith('http')
+    if (!path) return "";
+    return path.startsWith("http")
       ? path
-      : `${API_URL}/uploads/${path.replace(/^\/uploads\//, '')}`;
+      : `${API_URL}/uploads/${path.replace(/^\/uploads\//, "")}`;
   };
 
   return (
@@ -41,7 +41,7 @@ const CartPage = () => {
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {cartItems
-                .filter(ci => ci.item)
+                .filter((ci) => ci.item)
                 .map(({ _id, item, quantity }) => (
                   <div
                     key={_id}
@@ -49,11 +49,15 @@ const CartPage = () => {
                   >
                     <div
                       className="w-24 h-24 flex-shrink-0 cursor-pointer relative overflow-hidden rounded-lg transition-transform duration-300"
-                      onClick={() => setSelectedImage(buildImageUrl(item.imageUrl || item.image))}
+                      onClick={() =>
+                        setSelectedImage(
+                          buildImageUrl(item.imageUrl || item.image)
+                        )
+                      }
                     >
                       <img
                         src={buildImageUrl(item?.imageUrl || item?.image)}
-                        alt={item?.name || 'Item'}
+                        alt={item?.name || "Item"}
                         className="w-full h-full object-contain"
                       />
                     </div>
@@ -63,13 +67,15 @@ const CartPage = () => {
                         {item.name}
                       </h3>
                       <p className="text-amber-100/80 font-cinzel mt-1">
-                        ₹{Number(item.price).toFixed(2)}
+                        RM{Number(item.price).toFixed(2)}
                       </p>
                     </div>
 
                     <div className="flex items-center gap-3">
                       <button
-                        onClick={() => updateQuantity(_id, Math.max(1, quantity - 1))}
+                        onClick={() =>
+                          updateQuantity(_id, Math.max(1, quantity - 1))
+                        }
                         className="w-8 h-8 rounded-full bg-amber-900/40 flex items-center justify-center hover:bg-amber-800/50 transition duration-200 active:scale-95"
                       >
                         <FaMinus className="w-4 h-4 text-amber-100" />
@@ -94,7 +100,7 @@ const CartPage = () => {
                         <span className="text-amber-100">Remove</span>
                       </button>
                       <p className="text-sm font-dancingscript text-amber-300">
-                        ₹{(Number(item.price) * quantity).toFixed(2)}
+                        RM{(Number(item.price) * quantity).toFixed(2)}
                       </p>
                     </div>
                   </div>
@@ -111,7 +117,7 @@ const CartPage = () => {
                 </Link>
                 <div className="flex items-center gap-8">
                   <h2 className="text-3xl font-dancingscript text-amber-100">
-                    Total: ₹{totalAmount.toFixed(2)}
+                    Total: RM{totalAmount.toFixed(2)}
                   </h2>
                   <Link
                     to="/checkout"
