@@ -137,10 +137,9 @@ const Navbar = () => {
                 to={link.href}
                 className={({ isActive }) =>
                   `px-2 xl:px-4 py-2 flex items-center space-x-2 rounded-3xl border-2 transition-colors text-sm xl:text-base
-                  ${
-                    isActive
-                      ? "bg-amber-900/20 border-amber-600/50"
-                      : "border-transparent hover:border-amber-600/50"
+                  ${isActive
+                    ? "bg-amber-900/20 border-amber-600/50"
+                    : "border-transparent hover:border-amber-600/50"
                   }`
                 }
               >
@@ -172,19 +171,16 @@ const Navbar = () => {
             >
               <div className="space-y-2">
                 <span
-                  className={`block w-6 h-0.5 bg-current transition-transform ${
-                    isOpen ? "rotate-45 translate-y-2" : ""
-                  }`}
+                  className={`block w-6 h-0.5 bg-current transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""
+                    }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-current ${
-                    isOpen ? "opacity-0" : ""
-                  }`}
+                  className={`block w-6 h-0.5 bg-current ${isOpen ? "opacity-0" : ""
+                    }`}
                 />
                 <span
-                  className={`block w-6 h-0.5 bg-current transition-transform ${
-                    isOpen ? "-rotate-45 -translate-y-2" : ""
-                  }`}
+                  className={`block w-6 h-0.5 bg-current transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""
+                    }`}
                 />
               </div>
             </button>
@@ -202,10 +198,9 @@ const Navbar = () => {
                 to={link.href}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center space-x-3 px-4 py-3 rounded-xl ${
-                    isActive
-                      ? "bg-amber-600/30 text-amber-400"
-                      : "text-amber-100 hover:bg-amber-600/20"
+                  `flex items-center space-x-3 px-4 py-3 rounded-xl ${isActive
+                    ? "bg-amber-600/30 text-amber-400"
+                    : "text-amber-100 hover:bg-amber-600/20"
                   }`
                 }
               >
@@ -244,7 +239,7 @@ const Navbar = () => {
               &times;
             </button>
             <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent mb-6 text-center">
-              Foodie-Frenzy
+              Food Point Delivery
             </h2>
             <Login
               onLoginSuccess={handleLoginSuccess}

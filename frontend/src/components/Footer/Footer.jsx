@@ -24,8 +24,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
           {/* Left Column */}
           <div className="space-y-6">
-            <h2 className="text-4xl sm:text-5xl md:text-5xl font-bold font-sacramento text-amber-400 animate-pulse">
-              Foodie-Frenzy
+            <h2 className="text-4xl sm:text-3xl md:text-3xl font-bold font-sacramento text-amber-400 animate-pulse">
+              Food Point Delivery
             </h2>
             <p className="text-amber-200/90 text-sm font-sacramento italic">
               Where culinary artistry meets doorstep convenience.<br />
@@ -108,18 +108,9 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-amber-800 pt-8 mt-8 text-center">
           <p className="text-amber-400 text-lg mb-2 font-playfair">
-            © 2025 Foodie-Frenzy. All rights reserved.
+            © 2025 Food Point Dilevery. All rights reserved.
           </p>
-          <div className="group inline-block">
-            <a
-              href="https://hexagondigitalservices.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg font-sacramento bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 bg-clip-text text-transparent hover:text-purple-300 transition-all duration-500"
-            >
-              Designed by Hexagon Digital Services
-            </a>
-          </div>
+
         </div>
       </div>
     </footer>
