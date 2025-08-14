@@ -88,5 +88,5 @@ npm run dev
 
 👨‍💻 Author
 
-Muhyadiin Jama abdullahi shaam and bedrudin
+Muhyadiin Jama, abdullahi shaam and bedrudin
 Computer Science & Software Engineering Student

@@ -1,15 +1,15 @@
-import express from 'express'
-import cors from 'cors'
-import 'dotenv/config'
-import { connectDB } from './config/db.js'
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
+import { connectDB } from './config/db.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import userRouter from './routes/userRoute.js'
-import cartRouter from './routes/cartRoute.js'
+import userRouter from './routes/userRoute.js';
+import cartRouter from './routes/cartRoute.js';
 import itemRouter from './routes/itemRoute.js';
 import orderRouter from './routes/orderRoute.js';
 
@@ -19,18 +19,23 @@ const port = process.env.PORT || 4000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// MIDDLEWARE 
+// ✅ FIXED CORS
+const allowedOrigins = [
+    'http://localhost:5173', // Vite dev
+    'http://localhost:5174', // If you use another local port
+    'https://food-delivery-szal.onrender.com' // Your deployed frontend
+];
+
 app.use(
     cors({
         origin: (origin, callback) => {
-            const allowedOrigins = ['https://food-delivery-szal.onrender.com', 'https://food-delivery-admin-1h9m.onrender.com'];
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
             } else {
                 callback(new Error('Not allowed by CORS'));
             }
         },
-        credentials: true,
+        credentials: true
     })
 );
 
@@ -41,16 +46,16 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 // Routes
-app.use('/api/user', userRouter)
+app.use('/api/user', userRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/api/cart', cartRouter)
+app.use('/api/cart', cartRouter);
 app.use('/api/items', itemRouter);
 app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
     res.send('API WORKING');
-})
+});
 
 app.listen(port, () => {
-    console.log(`Server Started on http://localhost:${port}`)
-})
+    console.log(`Server Started on http://localhost:${port}`);
+});
